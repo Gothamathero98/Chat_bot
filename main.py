@@ -1,9 +1,11 @@
 from openai import OpenAI
 import os
+import speech_recognition as sr
 
 #Implemented an AI chatbot using openrouter
 
 api_key = os.getenv("API_KEY")
+recognizer = sr.Recognizer()
 
 if not api_key:
     raise ValueError ("API KEY not found")
@@ -41,6 +43,12 @@ while True:
 
         print('chat history cleared')
         continue
+
+    if user_input == 'mic':
+        with sr.Microphone() as source:
+            print("Listning.............................")
+            audio = recognizer.listen(source)
+            print(f"You said : { user_input}")
 
     chat_history.append({
         "role": "user",
