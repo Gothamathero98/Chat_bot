@@ -2,7 +2,9 @@ from openai import OpenAI
 import os
 
 
+
 #getting API code in os
+
 
 api_key = os.getenv("API_KEY")
 
