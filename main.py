@@ -1,7 +1,10 @@
 from openai import OpenAI
 import os
 
-#Implemented an AI chatbot using openrouter
+
+
+#getting API code in os
+
 
 api_key = os.getenv("API_KEY")
 
@@ -50,8 +53,8 @@ while True:
         break
     completion = client.chat.completions.create(
 
-        model="qwen/qwen2.5-coder-7b-instruct",
-        messages=chat_history
+        model ="qwen/qwen2.5-coder-7b-instruct",
+        messages =chat_history
     )
     response = completion.choices[0].message.content
     print(response)
